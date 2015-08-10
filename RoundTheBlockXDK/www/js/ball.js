@@ -1,31 +1,61 @@
 ///Ball///
+
 	Ball = Class.create(Sprite, {
 		initialize: function(radius){
 			enchant.Sprite.call(this, radius, radius);
+            this.image = game.assets['./asset/ball.png'];
 			this.dx = 1.5;
 			this.dy = 16;
 			this.addEventListener(Event.ENTER_FRAME, this.move)
 		},
-		move: function() {
-		if (ball.x > game.width - ball.width || ball.x < 0)
-			ball.dx = - ball.dx;
-		if (ball.y < 0)
-			ball.dy = - ball.dy;
-		if (ball.y > gameHeight || ball.x < 0 - ball.width || ball.x > game.width)
-		{
-			ball.x = ball.y = 0;
-		}
-		if (ball.intersect(paddle) && (ball.height < paddle.height))
-		{
-			ball.dx = 32 * ((ball.x-(paddle.x +paddle.width/2))/paddle.width);
-			ball.dy = - ball.dy;
-		}
+        move: function() {
+        if (ball.x > game.width - ball.width || ball.x < 0)
+            ball.dx = - ball.dx;
+        if (ball.y < 0)
+            ball.dy = - ball.dy;
+        if (ball.y > gameHeight || ball.x < 0 - ball.width || ball.x > game.width)
+        {
+            ball.x = ball.y = 0;
+        }
+        if (ball.intersect(paddle) && (ball.height < paddle.height))
+        {
+            ball.dx = 32 * ((ball.x-(paddle.x +paddle.width/2))/paddle.width);
+            ball.dy = - ball.dy;
+        }
 
-			this.x += this.dx;
-			this.y ++ this.dy;
-		}
+            this.x += this.dx;
+            this.y ++ this.dy;
+        }
+
+
+		
 	});
+
+    /*Old move function
+    move: function() {
+        if (ball.x > game.width - ball.width || ball.x < 0)
+            ball.dx = - ball.dx;
+        if (ball.y < 0)
+            ball.dy = - ball.dy;
+        if (ball.y > gameHeight || ball.x < 0 - ball.width || ball.x > game.width)
+        {
+            ball.x = ball.y = 0;
+        }
+        if (ball.intersect(paddle) && (ball.height < paddle.height))
+        {
+            ball.dx = 32 * ((ball.x-(paddle.x +paddle.width/2))/paddle.width);
+            ball.dy = - ball.dy;
+        }
+
+            this.x += this.dx;
+            this.y ++ this.dy;
+        }
+
+
+    */
 	/*
+    Old things
+
 	var ball = new Sprite(25, 25);
 	ball.dx = 1.5;
 	ball.dy = 16;
