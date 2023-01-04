@@ -39,7 +39,7 @@ public class CreditsScene : RtBehaviour {
 				if (rayCastHit.transform.name == "tsuBanner")
 				{
 					ep.PowerHit();
-					Application.OpenURL("http://www.tnstate.edu");
+					Application.OpenURL("https://www.tnstate.edu/");
 				}
 
 				if (rayCastHit.transform.name == "Blog")
@@ -50,12 +50,12 @@ public class CreditsScene : RtBehaviour {
 				if (rayCastHit.transform.name == "Email")
 				{
 					ep.PowerHit();
-					Application.OpenURL("mailto:tsublockgame@gmail.com");
+					Application.OpenURL("mailto:dj@dij.io");
 				}
 				if (rayCastHit.transform.name == "Tweet")
 				{
 					ep.PowerHit();
-					Application.OpenURL ("https://twitter.com/intent/tweet?&text=Scored%20" + PlayerPrefs.GetInt("best") + "%20points%20on%20The%20NEW%20@TSU_TheBlock%20from%20@mrjones1914!!!%20&hashtags=TSUgame,HBCU,RepYoHBCU,TSU");
+					Application.OpenURL ("https://twitter.com/intent/tweet?&text=Scored%20" + PlayerPrefs.GetInt("best") + "%20points%20on%20The%20NEW%20@TSU_TheBlock%20from%20@djstrongmane!!!%20&hashtags=TSUgame,HBCU,RepYoHBCU,TSU");
 				}
 			}
 		}

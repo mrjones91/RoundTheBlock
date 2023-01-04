@@ -10,9 +10,9 @@ public class PauseGUI : RtBehaviour {
 		text.text = hiScore.text = "";
 		hiScore.text = "";
 		menu1.text = "";
-		menu1.collider.isTrigger = true;
+		menu1.GetComponent<Collider>().isTrigger = true;
 		menu2.text = "";
-		menu2.collider.isTrigger = true;
+		menu2.GetComponent<Collider>().isTrigger = true;
 		//renderer.isVisible = false;
 	}
 	protected override void Update ()
@@ -29,10 +29,10 @@ public class PauseGUI : RtBehaviour {
 		hiScore.transform.position = new Vector2(-1.4f, 1.7f);
 		menu1.text = "Quit to Menu?";
 		menu1.transform.position = new Vector3(-1.397773f, -0.9863482f, -.5f);
-		menu1.collider.isTrigger = false;
+		menu1.GetComponent<Collider>().isTrigger = false;
 		menu2.text = "";
 		menu2.transform.position = new Vector3(-1.397773f, -0.9863482f, 0f);
-		menu2.collider.isTrigger = true;
+		menu2.GetComponent<Collider>().isTrigger = true;
 		//renderer.isVisible = true;
 	}
 	
@@ -44,10 +44,10 @@ public class PauseGUI : RtBehaviour {
 		hiScore.text = "";
 		menu1.text = "";
 		menu1.transform.position = new Vector3(-1.397773f, -0.9863482f, 0f);
-		menu1.collider.isTrigger = true;
+		menu1.GetComponent<Collider>().isTrigger = true;
 		menu2.text = "";
 		menu2.transform.position = new Vector3(-1.397773f, -0.9863482f, 0f);
-		menu2.collider.isTrigger = true;
+		menu2.GetComponent<Collider>().isTrigger = true;
 		//renderer.isVisible = false;
 	}
 
@@ -56,9 +56,9 @@ public class PauseGUI : RtBehaviour {
 		base.OnResumeGame();
 		end = true;
 		game.SendMessage("OnEndGame");
-		menu1.collider.isTrigger = true;
+		menu1.GetComponent<Collider>().isTrigger = true;
 		menu2.transform.position = new Vector3(-1.397773f, -0.9863482f, 0f);
-		menu2.collider.isTrigger = false;
+		menu2.GetComponent<Collider>().isTrigger = false;
 		text.text = "Game Over";
 		text.transform.localScale = new Vector3(0.14327f, 0.14327f, 0.14327f);
 		text.transform.position = new Vector3(-2.719229f, 0f, 0f);
@@ -71,7 +71,7 @@ public class PauseGUI : RtBehaviour {
 		menu2.transform.position = new Vector3(-1.397773f, -0.9863482f, -.5f);
 		menu2.transform.position = new Vector3(-1.159526f, -0.9863482f, 0);
 		//mp.audio.Stop();
-		mp.audio.clip = win;
+		mp.GetComponent<AudioSource>().clip = win;
 		//mp.audio.Play ();
 		//renderer.isVisible = false;
 	}

@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class RtBehaviour : MonoBehaviour {
 	
-	public GUIText GuiScore;
-	public GUIText GuiHighScore;
+	public Text GuiScore;
+	public Text GuiHighScore;
 	
 	public BlockGame game;
 	public ScoreScript score;
@@ -98,14 +99,14 @@ public class RtBehaviour : MonoBehaviour {
 					ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 					if (Physics.Raycast(ray, out rayCastHit) )
 					{
-						if (rayCastHit.transform.name == "Menu1" && (rayCastHit.transform.collider.isTrigger == false) )
+						if (rayCastHit.transform.name == "Menu1" && (rayCastHit.transform.GetComponent<Collider>().isTrigger == false) )
 						{
 
 							OnResumeGame();
 							Application.LoadLevel("Menu");
 														
 						}
-						else if (rayCastHit.transform.name == "Menu2" && (rayCastHit.transform.collider.isTrigger == false))
+						else if (rayCastHit.transform.name == "Menu2" && (rayCastHit.transform.GetComponent<Collider>().isTrigger == false))
 						{
 							OnResumeGame();
 							PlayerPrefs.SetInt("lives", 2);

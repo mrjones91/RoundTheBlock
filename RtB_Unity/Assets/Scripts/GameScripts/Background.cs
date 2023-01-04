@@ -25,19 +25,19 @@ public class Background : RtBehaviour {
 		secondsToWait = 1/FPS;
 		if (frames.Length > 0)
 		{
-			renderer.material.mainTexture = frames[currentFrame];
+			GetComponent<Renderer>().material.mainTexture = frames[currentFrame];
 		}
-		renderer.material.color = bg;
+		GetComponent<Renderer>().material.color = bg;
 		
 		StartCoroutine(Animate());
 		inBounds = true;
 		
 		force = new Vector3(50f, 80f, 0f);
-		if (gameObject.name != "Cube")
-		{
-			rigidbody.velocity = force;
+		//if (gameObject.name != "Cube")
+		//{
+		//	GetComponent<Rigidbody>().velocity = force;
 			
-		}
+		//}
 
 	}
 	
@@ -71,27 +71,27 @@ public class Background : RtBehaviour {
 	}
 	void OnCollisionEnter(Collision col)
 	{
-		if (col.transform.position.x > rigidbody.transform.position.x)
-			{
+		//if (col.transform.position.x > GetComponent<Rigidbody>().transform.position.x)
+		//	{
 				
-				rigidbody.AddForce(Vector3.left, ForceMode.VelocityChange);
+		//		GetComponent<Rigidbody>().AddForce(Vector3.left, ForceMode.VelocityChange);
 				
-			}
-			else if (col.transform.position.x < rigidbody.transform.position.x)
-			{
+		//	}
+		//	else if (col.transform.position.x < GetComponent<Rigidbody>().transform.position.x)
+		//	{
 				
-				rigidbody.AddForce(Vector3.right, ForceMode.VelocityChange);
-			}
-			if (col.transform.position.y > rigidbody.transform.position.y)
-			{
-				rigidbody.AddForce(Vector3.down);
-				//rigidbody.velocity = new Vector3(rigidbody.velocity.x, rigidbody.velocity.y, 0);
-			}
-			else if (col.transform.position.y < rigidbody.transform.position.y)
-			{
-				rigidbody.AddForce(Vector3.up);
-				//rigidbody.velocity = new Vector3(rigidbody.velocity.x, rigidbody.velocity.y, 0);
-			}
+		//		GetComponent<Rigidbody>().AddForce(Vector3.right, ForceMode.VelocityChange);
+		//	}
+		//	if (col.transform.position.y > GetComponent<Rigidbody>().transform.position.y)
+		//	{
+		//		GetComponent<Rigidbody>().AddForce(Vector3.down);
+		//		//rigidbody.velocity = new Vector3(rigidbody.velocity.x, rigidbody.velocity.y, 0);
+		//	}
+		//	else if (col.transform.position.y < GetComponent<Rigidbody>().transform.position.y)
+		//	{
+		//		GetComponent<Rigidbody>().AddForce(Vector3.up);
+		//		//rigidbody.velocity = new Vector3(rigidbody.velocity.x, rigidbody.velocity.y, 0);
+		//	}
 	}
 	IEnumerator Animate()
 	{
@@ -105,7 +105,7 @@ public class Background : RtBehaviour {
 		else
 			currentFrame++;
 		
-		renderer.material.mainTexture = frames[currentFrame];
+		GetComponent<Renderer>().material.mainTexture = frames[currentFrame];
 		
 		StartCoroutine(Animate());
 

@@ -21,7 +21,7 @@ public class BlockGame : RtBehaviour {
 		}
 	}
 	void Start () {
-		bg.renderer.material.color = Color.gray;
+		bg.GetComponent<Renderer>().material.color = Color.gray;
 		ballb = GameObject.Find("Ball");
 		player = GameObject.Find ("Paddle");
 		ballPos = player.transform.position + new Vector3(.1f, .75f, 0f);

@@ -12,7 +12,7 @@ public class SplashScreen : RtBehaviour {
 		timer = 3.5f;
 		alpha = .2f;
 		fade = new Color(0, 0, 0, alpha);
-		renderer.material.color = fade;
+		GetComponent<Renderer>().material.color = fade;
 	}
 	
 	void Start () {
@@ -26,7 +26,7 @@ public class SplashScreen : RtBehaviour {
 		timer -= Time.deltaTime;
 		alpha -= .2f;
 		fade.a = alpha;
-		renderer.material.color = fade;
+		GetComponent<Renderer>().material.color = fade;
 		
 		if (timer <= 0  || Input.GetMouseButton(0))
 		{

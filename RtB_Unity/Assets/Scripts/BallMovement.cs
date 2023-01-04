@@ -38,16 +38,16 @@ public class BallMovement : RtBehaviour
 
 			//rigidbody.transform.position += new Vector3(0, .05f);
 			//rigidbody.velocity += ;
-			if (Mathf.Abs(stuckX) == Mathf.Abs(rigidbody.velocity.x) )
+			if (Mathf.Abs(stuckX) == Mathf.Abs(GetComponent<Rigidbody>().velocity.x) )
 			{
 				UnStick();
 			}
-			else if (Mathf.Abs(stuckY) == Mathf.Abs(rigidbody.velocity.y) )
+			else if (Mathf.Abs(stuckY) == Mathf.Abs(GetComponent<Rigidbody>().velocity.y) )
 			{
 				UnStick();
 			}
 
-			if (rigidbody.velocity.x < 1.8f || rigidbody.velocity.y < 2.8f)
+			if (GetComponent<Rigidbody>().velocity.x < 1.8f || GetComponent<Rigidbody>().velocity.y < 2.8f)
 			{
 				InvokeRepeating("Moving", 0f, 10f);
 			}
@@ -68,67 +68,67 @@ public class BallMovement : RtBehaviour
 			break;
 		}
 
-		if( ( (rigidbody.velocity.x < 0) && (force.x > 0)) || ( (rigidbody.velocity.x > 0) && (force.x < 0) ) )
+		if( ( (GetComponent<Rigidbody>().velocity.x < 0) && (force.x > 0)) || ( (GetComponent<Rigidbody>().velocity.x > 0) && (force.x < 0) ) )
 		{
 			force.x *= -1;
 		}
-		if( ( (rigidbody.velocity.y < 0) && (force.y > 0)) || ( (rigidbody.velocity.y > 0) && (force.y < 0) ) )
+		if( ( (GetComponent<Rigidbody>().velocity.y < 0) && (force.y > 0)) || ( (GetComponent<Rigidbody>().velocity.y > 0) && (force.y < 0) ) )
 		{
 			force.y *= -1;
 		}
 		//force = new Vector3(3f, 5f, 0f);
-		rigidbody.velocity = force;
+		GetComponent<Rigidbody>().velocity = force;
 	}
 
 
 	void Accelerate()
 	{
-		rigidbody.velocity += acceleration;
+		GetComponent<Rigidbody>().velocity += acceleration;
 	}
 
 	void Decelerate()
 	{
-		rigidbody.velocity = force;
+		GetComponent<Rigidbody>().velocity = force;
 	}
 
 	public void Accelerate(Vector3 accel)
 	{
-		if( ( (rigidbody.velocity.x < 0) && (accel.x > 0)) || ( (rigidbody.velocity.x > 0) && (accel.x < 0) ) )
+		if( ( (GetComponent<Rigidbody>().velocity.x < 0) && (accel.x > 0)) || ( (GetComponent<Rigidbody>().velocity.x > 0) && (accel.x < 0) ) )
 		{
 			accel.x *= -1;
 		}
-		if( ( (rigidbody.velocity.y < 0) && (accel.y > 0)) || ( (rigidbody.velocity.y > 0) && (accel.y < 0) ) )
+		if( ( (GetComponent<Rigidbody>().velocity.y < 0) && (accel.y > 0)) || ( (GetComponent<Rigidbody>().velocity.y > 0) && (accel.y < 0) ) )
 		{
 			accel.y *= -1;
 		}
-		rigidbody.velocity = accel;
+		GetComponent<Rigidbody>().velocity = accel;
 		acceleration = accel;
 	}
 
 	void UnStick()
 	{
-		rigidbody.AddForce(0f, -1f, 0f);
-		rigidbody.AddForce(-1f, 0f, 0f);
+		GetComponent<Rigidbody>().AddForce(0f, -1f, 0f);
+		GetComponent<Rigidbody>().AddForce(-1f, 0f, 0f);
 	}
 
 	void UnStick(int axis)
 	{
 		if (axis == 0)
 		{
-			rigidbody.AddForce(0f, -1f, 0f);
+			GetComponent<Rigidbody>().AddForce(0f, -1f, 0f);
 			//print ("YYYY");
 		}
 		else if (axis == 1)
 		{
-			rigidbody.AddForce(-0.5f, 0f, 0f);
+			GetComponent<Rigidbody>().AddForce(-0.5f, 0f, 0f);
 			//print ("XXXX");
 		}
 	}
 	void OnCollisionEnter(Collision col)
 	{
 		
-		stuckX = rigidbody.velocity.x;
-		stuckY = rigidbody.velocity.y;
+		stuckX = GetComponent<Rigidbody>().velocity.x;
+		stuckY = GetComponent<Rigidbody>().velocity.y;
 		//print (rigidbody.velocity);
 		if (col.gameObject.GetComponent<SteelBrick>())
 		{
@@ -157,17 +157,17 @@ public class BallMovement : RtBehaviour
 	public void OnStartGame()
 	{
 		paused = true;
-		gameObject.collider.isTrigger = true;
+		gameObject.GetComponent<Collider>().isTrigger = true;
 		CancelInvoke("Moving");
 	}
 
 	public void OnRelease()
 	{
 		paused = false;
-		gameObject.collider.isTrigger = false;
+		gameObject.GetComponent<Collider>().isTrigger = false;
 		//acceleration = new Vector3(.15f, .2f, 0);
 		force = new Vector3(3f, 5f, 0f);
-		rigidbody.velocity = force;
+		GetComponent<Rigidbody>().velocity = force;
 		InvokeRepeating("Moving", 1, .25f);
 	}
 

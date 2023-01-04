@@ -13,7 +13,7 @@ public class SafetyBarController : RtBehaviour {
 		strength[0] = Color.green;
 		strength[1] = Color.yellow;
 		strength[2] = Color.red;
-		renderer.material.color = strength[(int)hitLimit];
+		GetComponent<Renderer>().material.color = strength[(int)hitLimit];
 	}
 	
 	// Update is called once per frame
@@ -41,7 +41,7 @@ public class SafetyBarController : RtBehaviour {
 				hitLimit += 1;
 				if (hitLimit <=2)
 				{
-					renderer.material.color = strength[(int)hitLimit];
+					GetComponent<Renderer>().material.color = strength[(int)hitLimit];
 				}
 			}
 			

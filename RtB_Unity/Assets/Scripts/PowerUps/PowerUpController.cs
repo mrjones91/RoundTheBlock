@@ -31,7 +31,7 @@ public class PowerUpController : RtBehaviour {
 				Destroy ( gameObject );
 			}
 			
-			if (collider.bounds.Intersects(paddle.collider.bounds))
+			if (GetComponent<Collider>().bounds.Intersects(paddle.GetComponent<Collider>().bounds))
 			{
 				Destroy (gameObject);
 				ep.PowerHit();

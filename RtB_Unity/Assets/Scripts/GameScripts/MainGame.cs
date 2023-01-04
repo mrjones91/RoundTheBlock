@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class MainGame : RtBehaviour {
@@ -8,8 +9,8 @@ public class MainGame : RtBehaviour {
 	//private GameObject ball;
 	//private int score = 0;
 	void Awake(){
-		GuiScore = new GUIText();
-		GuiHighScore = new GUIText();
+		Text GuiScore;
+		Text GuiHighScore;
 		//ball = GameObject.Find("Ball");
 	}
 	//public int speed = 2;
