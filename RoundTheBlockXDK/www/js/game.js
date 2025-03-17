@@ -34,17 +34,17 @@ loadMainMenu();
 
 ///---Add Main Scene objects---///
 
-// loadGameScene();
+loadGameScene();
 
 
 //Credits + donation things
 //Options
 
-// var scene = new Scene();
-// sign.x = 200;
-// scene.addChild(sign);
-//game.pushScene(scene);
-//game.popScene();
+var scene = new Scene();
+sign.x = 200;
+scene.addChild(sign);
+game.pushScene(scene);
+game.popScene();
 
 
 
