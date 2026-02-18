@@ -12,7 +12,7 @@ public class ExtraLife : PowerUpController {
 			if ( gameObject.activeSelf )
 			{
 				life = PlayerPrefs.GetInt("lives") + 1;
-				position.y -= .10f;
+				position.y -= .1f;
 				gameObject.transform.position = position;
 			}
 			

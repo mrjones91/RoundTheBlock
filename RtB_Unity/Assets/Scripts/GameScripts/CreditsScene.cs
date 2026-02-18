@@ -45,18 +45,18 @@ public class CreditsScene : RtBehaviour {
 				if (rayCastHit.transform.name == "Blog")
 				{
 					ep.PowerHit();
-					Application.OpenURL("http://wayofthejones.blogspot.com/");
+					Application.OpenURL("http://blog.dij.io");
 				}
 				if (rayCastHit.transform.name == "Email")
 				{
 					ep.PowerHit();
-					Application.OpenURL("mailto:dj@dij.io");
+					Application.OpenURL("mailto:daniel@dij.io");
 				}
-				if (rayCastHit.transform.name == "Tweet")
-				{
-					ep.PowerHit();
-					Application.OpenURL ("https://twitter.com/intent/tweet?&text=Scored%20" + PlayerPrefs.GetInt("best") + "%20points%20on%20The%20NEW%20@TSU_TheBlock%20from%20@djstrongmane!!!%20&hashtags=TSUgame,HBCU,RepYoHBCU,TSU");
-				}
+				// if (rayCastHit.transform.name == "Tweet")
+				// {
+				// 	ep.PowerHit();
+				// 	Application.OpenURL ("https://twitter.com/intent/tweet?&text=Scored%20" + PlayerPrefs.GetInt("best") + "%20points%20on%20The%20NEW%20@TSU_TheBlock%20from%20@djstrongmane!!!%20&hashtags=TSUgame,HBCU,RepYoHBCU,TSU");
+				// }
 			}
 		}
 	}

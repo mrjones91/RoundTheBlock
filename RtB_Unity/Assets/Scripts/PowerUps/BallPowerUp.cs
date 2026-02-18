@@ -28,7 +28,7 @@ public class BallPowerUp : PowerUpController {
 		{
 			if ( gameObject.activeSelf )
 			{
-				position.y -= .10f;
+				position.y -= .1f;
 				gameObject.transform.position = position;
 			}
 			

@@ -58,7 +58,7 @@ public class PauseGUI : RtBehaviour {
 		game.SendMessage("OnEndGame");
 		menu1.GetComponent<Collider>().isTrigger = true;
 		menu2.transform.position = new Vector3(-1.397773f, -0.9863482f, 0f);
-		menu2.GetComponent<Collider>().isTrigger = false;
+		menu2.GetComponent<Collider>().isTrigger = true;
 		text.text = "Game Over";
 		text.transform.localScale = new Vector3(0.14327f, 0.14327f, 0.14327f);
 		text.transform.position = new Vector3(-2.719229f, 0f, 0f);
@@ -67,9 +67,9 @@ public class PauseGUI : RtBehaviour {
 		hiScore.transform.position = new Vector2(-1.6f, 1.737249f);
 		hiScore.text = "Score: " + PlayerPrefs.GetInt("Score") + "\nYour Best: " + PlayerPrefs.GetInt("best");
 
-		menu2.text = "Try Again?";
-		menu2.transform.position = new Vector3(-1.397773f, -0.9863482f, -.5f);
-		menu2.transform.position = new Vector3(-1.159526f, -0.9863482f, 0);
+		menu2.text = "Refresh to Try Again";
+		// menu2.transform.position = new Vector3(-1.397773f, -0.9863482f, -.5f);
+		menu2.transform.position = new Vector3(-2.159526f, -0.9863482f, 0);
 		//mp.audio.Stop();
 		mp.GetComponent<AudioSource>().clip = win;
 		//mp.audio.Play ();
